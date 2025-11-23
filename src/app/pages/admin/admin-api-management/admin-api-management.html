@@ -1,0 +1,20 @@
+ <h2 class="text-xl font-bold mb-4">Quản lý API Keys</h2>
+    <table class="w-full table-auto border-collapse border">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border px-2 py-1">System</th>
+          <th class="border px-2 py-1">API Key</th>
+          <th class="border px-2 py-1">UserId</th>
+          <th class="border px-2 py-1">Active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of apikeys">
+          <td class="border px-2 py-1">{{ key.systemName }}</td>
+          <td class="border px-2 py-1 font-mono">{{ key.apikey }}</td>
+          <td class="border px-2 py-1">{{ key.userId }}</td>
+          <td class="border px-2 py-1">{{ key.isActive }}</td>
+        </tr>
+      </tbody>
+    </table>
+  

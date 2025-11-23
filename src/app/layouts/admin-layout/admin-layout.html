@@ -1,0 +1,29 @@
+<div class="min-h-screen flex bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-blue-700 text-white flex flex-col">
+    <div class="px-6 py-4 text-2xl font-bold border-b border-blue-500">Admin Panel</div>
+    <nav class="flex-1 p-4 space-y-2">
+      <a routerLink="/admin/dashboard" class="block px-3 py-2 rounded hover:bg-blue-600">📊 Dashboard</a>
+      <a routerLink="/admin/users" class="block px-3 py-2 rounded hover:bg-blue-600">👤 Người dùng</a>
+      <a routerLink="/admin/api-management" class="block px-3 py-2 rounded hover:bg-blue-600">🛠️ Quản lý API</a>
+      <a routerLink="/admin/search-history" class="block px-3 py-2 rounded hover:bg-blue-600">🕵️ Lịch sử tra cứu</a>
+      <a routerLink="/admin/settings" class="block px-3 py-2 rounded hover:bg-blue-600">⚙️ Cài đặt</a>
+    </nav>
+    <div class="border-t border-blue-600 p-4 text-sm">
+      <button (click)="logout()" class="w-full bg-red-500 hover:bg-red-600 py-2 rounded text-white font-medium">Đăng
+        xuất</button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <div class="flex-1 flex flex-col">
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+      <h1 class="text-xl font-semibold text-gray-800">Trang quản trị</h1>
+      <div class="text-sm text-gray-600">Xin chào, Admin</div>
+    </header>
+
+    <main class="flex-grow p-6">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

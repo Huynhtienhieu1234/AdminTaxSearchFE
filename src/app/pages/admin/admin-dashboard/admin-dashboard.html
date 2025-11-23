@@ -1,0 +1,99 @@
+<div class="p-6 bg-gray-50 min-h-screen">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 animate-fade-in">📊 Bảng điều khiển</h2>
+
+    <!-- Grid cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div
+            class="bg-white rounded-xl shadow-lg p-6 transform transition hover:scale-105 hover:shadow-xl animate-slide-up">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-700">Người dùng</h3>
+                <span class="text-3xl">👤</span>
+            </div>
+            <p class="text-4xl font-bold text-indigo-600 mt-4">{{ stats.users }}</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+            class="bg-white rounded-xl shadow-lg p-6 transform transition hover:scale-105 hover:shadow-xl animate-slide-up delay-100">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-700">API Key</h3>
+                <span class="text-3xl">🛠️</span>
+            </div>
+            <p class="text-4xl font-bold text-green-600 mt-4">{{ stats.apiCalls }}</p>
+            <p class="text-sm text-gray-500 mt-2">Trong tháng này</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+            class="bg-white rounded-xl shadow-lg p-6 transform transition hover:scale-105 hover:shadow-xl animate-slide-up delay-200">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-700">Lịch sử tra cứu</h3>
+                <span class="text-3xl">🕵️</span>
+            </div>
+            <p class="text-4xl font-bold text-pink-600 mt-4">{{ stats.searches }}</p>
+
+            <p class="text-sm text-gray-500 mt-2">Trong tuần này</p>
+        </div>
+    </div>
+
+    <!-- Recent activity -->
+    <div class="mt-10 bg-white rounded-xl shadow-lg p-6 animate-fade-in">
+        <h3 class="text-lg font-semibold text-gray-700 mb-4">📌 Hoạt động gần đây</h3>
+        <ul class="space-y-3">
+            <li class="flex items-center justify-between border-b pb-2">
+                <span class="text-gray-600">Admin đăng nhập hệ thống</span>
+                <span class="text-sm text-gray-400">5 phút trước</span>
+            </li>
+            <li class="flex items-center justify-between border-b pb-2">
+                <span class="text-gray-600">Người dùng mới đăng ký</span>
+                <span class="text-sm text-gray-400">30 phút trước</span>
+            </li>
+            <li class="flex items-center justify-between">
+                <span class="text-gray-600">API Key được tạo</span>
+                <span class="text-sm text-gray-400">1 giờ trước</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.8s ease forwards;
+    }
+
+    .animate-slide-up {
+        animation: slide-up 0.8s ease forwards;
+    }
+
+    .delay-100 {
+        animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+</style>

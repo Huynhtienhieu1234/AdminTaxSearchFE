@@ -1,0 +1,48 @@
+<div class="min-h-screen bg-slate-50 flex flex-col">
+  <header class="bg-sky-50 shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-sky-700">Tax Search Portal</h1>
+    <nav class="flex gap-4 text-slate-600 items-center">
+      <a routerLink="/" class="hover:text-sky-600">Trang chủ</a>
+      <a *ngIf="!username" routerLink="auth/login" class="hover:text-sky-600">Đăng nhập</a>
+      <a *ngIf="!username" routerLink="auth/register" class="hover:text-sky-600">Đăng ký</a>
+      <div *ngIf="username" class="relative">
+        <button (click)="toggleUserMenu()"
+          class="flex items-center gap-2 px-3 py-1 bg-slate-200 rounded hover:bg-sky-100">
+          {{username}} ▼
+        </button>
+        <div *ngIf="userMenuOpen" class="absolute right-0 mt-2 w-48 bg-white border rounded shadow z-10">
+          <a routerLink="user/change-password" class="block px-4 py-2 hover:bg-slate-100">Đổi mật khẩu</a>
+          <a routerLink="user/api-keys" class="block px-4 py-2 hover:bg-slate-100">API Keys</a>
+          <a routerLink="user/history" class="block px-4 py-2 hover:bg-slate-100">Lịch sử tra cứu</a>
+          <button (click)="logout()" class="w-full text-left px-4 py-2 hover:bg-slate-100">Đăng xuất</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <div class="bg-slate-50 p-6 flex justify-center">
+    <div class="flex gap-4 bg-white p-2 rounded-xl shadow">
+      <a routerLink="lookup/admin" routerLinkActive="bg-sky-600 text-white"
+        class="px-4 py-2 rounded-lg hover:bg-sky-500 hover:text-white transition">
+        Tra cứu hành chính
+      </a>
+      <a routerLink="lookup/tax" routerLinkActive="bg-sky-600 text-white"
+        class="px-4 py-2 rounded-lg hover:bg-sky-500 hover:text-white transition">
+        Tra cứu Cccd/MST
+      </a>
+      <a routerLink="lookup/coordinate" routerLinkActive="bg-sky-600 text-white"
+        class="px-4 py-2 rounded-lg hover:bg-sky-500 hover:text-white transition">
+        Tra cứu theo tọa độ
+      </a>
+    </div>
+  </div>
+
+  <main class="flex-grow p-6 flex flex-col items-center justify-center">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="bg-slate-100 shadow-inner py-4 text-center text-slate-500 text-sm">
+    Nhóm 7 Công nghệ web Trường Đại học Đồng Tháp.
+  </footer>
+</div>

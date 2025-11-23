@@ -1,0 +1,20 @@
+   <div class="w-full max-w-4xl bg-white p-6 rounded shadow">
+      <h2 class="text-xl font-bold mb-4">Lịch sử tra cứu</h2>
+      <table class="w-full table-auto border-collapse">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border px-4 py-2">Thời gian</th>
+            <th class="border px-4 py-2">Nhập</th>
+            <th class="border px-4 py-2">Kết quả</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let h of histories">
+            <td class="border px-4 py-2">{{h.createdAt | date:'short'}}</td>
+            <td class="border px-4 py-2">{{h.inputText}}</td>
+            <td class="border px-4 py-2"><pre>{{h.resultText}}</pre></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ 
