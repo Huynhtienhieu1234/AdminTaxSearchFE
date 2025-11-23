@@ -11,14 +11,15 @@ export class AdminDashboardComponent implements OnInit {
     users: 0,
     apiCalls: 0,
     searches: 0,
-    apikeys: 0
-
+    apiKeys: 0
   };
+
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http.get<any>('https://localhost:5124/api/Dashboard/stats')
+
       .subscribe(data => {
         this.stats = data;
       });
