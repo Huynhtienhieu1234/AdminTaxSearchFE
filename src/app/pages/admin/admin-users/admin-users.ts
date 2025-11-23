@@ -42,12 +42,50 @@ export class AdminUsersComponent implements OnInit {
     }
   }
 
-  editUser(userId: number) {
-    console.log('Sửa user:', userId);
+
+
+  showModal = false;
+  modalMode: 'add' | 'edit' = 'add';
+  modalUser: any = {};
+
+  onAddUser(): void {
+    this.modalMode = 'add';
+    this.modalUser = {
+      username: '',
+      email: '',
+      roleId: 1,
+      isActive: true
+    };
+    this.showModal = true;
   }
 
-  deleteUser(userId: number) {
-    console.log('Xóa user:', userId);
+  editUser(user: any): void {
+    this.modalMode = 'edit';
+    this.modalUser = { ...user };
+    this.showModal = true;
+  }
+
+  deleteUser(user: any): void {
+    const confirmDelete = confirm(`Bạn có chắc muốn xóa tài khoản "${user.username}" không?`);
+    if (confirmDelete) {
+      console.log('🗑️ Xóa người dùng:', user);
+      // Gọi API xóa ở đây nếu cần
+    }
+  }
+
+  saveUser(): void {
+    if (this.modalMode === 'add') {
+      console.log('➕ Thêm người dùng:', this.modalUser);
+      // Gọi API tạo mới
+    } else {
+      console.log('✏️ Cập nhật người dùng:', this.modalUser);
+      // Gọi API cập nhật
+    }
+    this.closeModal();
+  }
+
+  closeModal(): void {
+    this.showModal = false;
   }
 
 

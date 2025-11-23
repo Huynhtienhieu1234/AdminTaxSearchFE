@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { appConfig } from '../../../app.config';
-
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.html',
@@ -18,8 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any>('https://localhost:5124/api/Dashboard/stats')
-
+    this.http.get<any>(`${environment.apiUrl}/Dashboard/stats`)
       .subscribe(data => {
         this.stats = data;
       });
