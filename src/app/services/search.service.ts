@@ -12,7 +12,7 @@ export interface SearchResult {
   data?: TaxInfo;
   error?: string;
   note?: string;
-    source?: 'db' | 'scrape';
+  source?: 'db' | 'scrape';
 }
 
 @Injectable({ providedIn: 'root' })
@@ -23,8 +23,8 @@ export class SearchService {
   search(Cccd: string): Observable<SearchResult> {
     return this.http.post<SearchResult>(this.apiUrl, { Cccd });
   }
- // Thêm updateAddress
+  // Thêm updateAddress
   updateAddress(taxId: string, newAddress: string): Observable<{ success: boolean }> {
     return this.http.put<{ success: boolean }>(`${this.apiUrl}/update-address`, { taxId, address: newAddress });
-  } 
+  }
 }

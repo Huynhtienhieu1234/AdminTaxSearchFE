@@ -27,9 +27,10 @@
   <div class="mb-6 group">
     <label class="block text-gray-700 text-sm font-medium mb-2">Mật khẩu</label>
     <div class="relative">
-      <input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" class="w-full px-5 py-4 bg-white border border-gray-300 rounded-2xl text-gray-800 placeholder-gray-400
-                    focus:outline-none focus:ring-4 focus:ring-indigo-300/50 focus:border-indigo-300
-                    transition-all duration-300" placeholder="Nhập mật khẩu" />
+      <input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" (keydown.enter)="login()" class="w-full px-5 py-4 bg-white border border-gray-300 rounded-2xl text-gray-800 placeholder-gray-400
+         focus:outline-none focus:ring-4 focus:ring-indigo-300/50 focus:border-indigo-300
+         transition-all duration-300" placeholder="Nhập mật khẩu" />
+
 
       <!-- Nút con mắt -->
       <button style="cursor: pointer;" type="button" (click)="togglePassword()"

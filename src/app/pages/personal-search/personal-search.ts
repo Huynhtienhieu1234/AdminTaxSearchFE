@@ -103,21 +103,21 @@ export class PersonalSearchComponent {
   }
 
   sendMessage() {
-  if (!this.chatInput.trim()) return;
+    if (!this.chatInput.trim()) return;
 
-  this.messages.push(`Bạn: ${this.chatInput.trim()}`);
+    this.messages.push(`Bạn: ${this.chatInput.trim()}`);
 
-  this.chatbotLogic.prompt = this.chatInput;
+    this.chatbotLogic.prompt = this.chatInput;
 
-  this.chatbotLogic.result.subscribe((text: string) => {
-    this.messages.push(`Ollama: ${text}`);
-  });
-  this.chatbotLogic.error.subscribe((err: string) => {
-    this.messages.push(`❌ ${err}`);
-  });
+    this.chatbotLogic.result.subscribe((text: string) => {
+      this.messages.push(`Ollama: ${text}`);
+    });
+    this.chatbotLogic.error.subscribe((err: string) => {
+      this.messages.push(`❌ ${err}`);
+    });
 
-  this.chatbotLogic.sendMessage();
-  this.chatInput = '';
-}
+    this.chatbotLogic.sendMessage();
+    this.chatInput = '';
+  }
 
 }
