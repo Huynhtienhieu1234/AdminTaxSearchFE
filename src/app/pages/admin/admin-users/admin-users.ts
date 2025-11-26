@@ -97,7 +97,7 @@ export class AdminUsersComponent implements OnInit {
       password: ''
     };
     this.showModal = true;
-    this.toastMessage = '🆕 Đang mở form thêm người dùng mới';
+
   }
 
   viewUser(user: User): void {
